@@ -15,7 +15,7 @@ class Homeprovider extends ChangeNotifier
   Future<Newsmodel> callapi(String country)
   async {
     Apihelper apihelper=Apihelper();
-    Newsmodel newsmodel=await apihelper.newsapicall("in");
+    Newsmodel newsmodel=await apihelper.newsapicall(country);
     return newsmodel;
   }
 

@@ -26,10 +26,16 @@ class _homeState extends State<home> {
             children: [
               TextButton(onPressed: () {
                 hpfalse!.changecountry('in');
-              }, child: Text("in")),
+              }, child: Text("in",style: TextStyle(color: Colors.black))),
               TextButton(onPressed: () {
                 hpfalse!.changecountry('us');
-              }, child: Text("us")),
+              }, child: Text("us",style: TextStyle(color: Colors.black))),
+              TextButton(onPressed: () {
+                hpfalse!.changecountry('au');
+              }, child: Text("au",style: TextStyle(color: Colors.black),)),
+              TextButton(onPressed: () {
+                hpfalse!.changecountry('cn');
+              }, child: Text("cn",style: TextStyle(color: Colors.black))),
             ],
           ),
           Expanded(
@@ -48,7 +54,14 @@ class _homeState extends State<home> {
                   List<Articlemdel>? articlelist=newsmodel!.articlelist;
 
                   return ListView.builder(itemBuilder: (context, index) {
-                    return ListTile(title: Text("${newsmodel!.articlelist![index].publishedAt}"),);
+                    return Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        height: 70,
+                          width: 350,
+                          decoration: BoxDecoration(border: Border.all(width: 1,color: Colors.black)),
+                          child: ListTile(title: Text("${newsmodel!.articlelist![index].title}"),)),
+                    );
                   },itemCount: newsmodel!.articlelist!.length,);
                 }
                 return CircularProgressIndicator();
